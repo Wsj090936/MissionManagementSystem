@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间要和mapper类一致 -->
+<mapper namespace="com.dao.StudentMapper">
+	<insert id="insertStudent" parameterType="com.pojo.Student">
+		INSERT INTO student(studentId,name,age,classId,grade,phoneNumber,idCard)
+		VALUES(#{studentId},#{name},#{age},#{classId},#{grade},#{phoneNumber},#{idCard})
+	</insert>
+
+	<select id="selectStudentById" resultType="com.pojo.Student">
+		SELECT * from student
+		WHERE studentId=#{studentId}
+	</select>
+
+	<select id="getStudentList" resultType="java.util.List">
+		SELECT * from student
+		WHERE classId=#{classId}
+
+	</select>
+
+</mapper>

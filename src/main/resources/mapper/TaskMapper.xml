@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间要和mapper类一致 -->
+<mapper namespace="com.dao.TaskMapper">
+
+	<select id="getTaskById" resultType="com.pojo.Task">
+		SELECT * from task
+		WHERE id=#{id}
+	</select>
+
+	<insert id="insertTaskAccount" parameterType="com.pojo.Task">
+		INSERT INTO task(teacherId,title,detail,created,updated,classId)
+		values(#{teacherId},#{title},#{detail},#{created},#{updated},#{classId})
+	</insert>
+
+</mapper>

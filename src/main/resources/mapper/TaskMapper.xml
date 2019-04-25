@@ -15,4 +15,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(#{teacherId},#{title},#{detail},#{created},#{updated},#{classId})
 	</insert>
 
+
+	<select id="getTaskList" resultType="com.pojo.Task" parameterType="java.lang.String">
+		SELECT * from task
+		where classId=#{classId}
+	</select>
+
 </mapper>

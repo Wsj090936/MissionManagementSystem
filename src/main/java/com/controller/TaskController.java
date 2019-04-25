@@ -6,6 +6,7 @@ import com.service.TaskService;
 import com.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -53,6 +54,17 @@ public class TaskController {
         }
 
         return "success";
+    }
+
+
+    @RequestMapping("/getTaskList")
+    public String getTaskList(Model model,String studentId){
+        if(studentId != null){
+            List<Task> taskList = taskService.getTaskList(studentId);
+            model.addAttribute("taskList",taskList);
+            return "stu_task_list";
+        }
+        return "error";
     }
 
 

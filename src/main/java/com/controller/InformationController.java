@@ -24,4 +24,6 @@ public class InformationController {
         }
         return "error";
     }
+
+
 }

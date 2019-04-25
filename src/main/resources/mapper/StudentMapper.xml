@@ -14,10 +14,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE studentId=#{studentId}
 	</select>
 
-	<select id="getStudentList" resultType="java.util.List">
+	<select id="getStudentList" resultType="com.pojo.Student" parameterType="java.lang.String">
 		SELECT * from student
 		WHERE classId=#{classId}
 
+	</select>
+
+	<select id="getStudentCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+		SELECT count(*)
+		from student
+		where classId=#{classId}
 	</select>
 
 </mapper>

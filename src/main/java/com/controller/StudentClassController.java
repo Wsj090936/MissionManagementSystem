@@ -42,9 +42,15 @@ public class StudentClassController {
         return "error";
     }
 
-    @RequestMapping("/getClassDto")
-    public String getClassDto(){
-        return "";
+    @RequestMapping("/studentClassInformation")
+    public String getClassInformation(Model model,String studentId){
+        if(studentId != null){
+            Student student = studentInformationService.selectStudentById(studentId);
+            int studnetCount = studentInformationService.getStudnetCount(student.getClassId());
+            model.addAttribute("stu",student);
+            model.addAttribute("stuCount",studnetCount);
+            return "stu_class";
+        }
+        return "error";
     }
-
 }

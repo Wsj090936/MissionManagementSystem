@@ -42,4 +42,12 @@ public class StudentInformationServiceImpl implements StudentInformationService 
         }
         return studentList;
     }
+
+    @Override
+    public int getStudnetCount(String classId) {
+
+        int studentCount = studentMapper.getStudentCount(classId);
+
+        return studentCount;
+    }
 }

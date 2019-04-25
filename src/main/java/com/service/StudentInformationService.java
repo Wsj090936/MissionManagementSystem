@@ -14,4 +14,6 @@ public interface StudentInformationService {
 
     List<Student> getStudentList(String studentId);
 
+    int getStudnetCount(String classId);
+
 }

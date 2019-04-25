@@ -30,7 +30,6 @@
                     <thead>
                     <tr>
                         <th>班级编号</th>
-                        <th>教师名称</th>
                         <th>班级人数</th>
                         <th>操作</th>
                     </tr>
@@ -38,13 +37,13 @@
                     <tbody>
 <%--                    <c:forEach items="${papers}" var="paper">--%>
                         <tr>
+<%--
                             <td><a href="${paper.url}" target="view_window">${paper.paperName}</a></td>
-                            <td>${paper.number1}</td>
-                            <td>${paper.releaseTime}</td>
-                            <td>${paper.author}</td>
-                            <td>${paper.status}</td>
+--%>
+                            <td>${stu.classId}</td>
+                            <td>${stuCount}</td>
                             <td>
-                                <a href="#" type="button" class="btn  btn-sm btn-primary"><i class="fa fa-edit"></i>查看详情</a>&nbsp;
+                                <a href="/class/getStudentList?studentId=${stu.studentId}" type="button" class="btn  btn-sm btn-primary"><i class="fa fa-edit"></i>查看详情</a>&nbsp;
                             </td>
                         </tr>
 <%--                    </c:forEach>--%>

@@ -49,8 +49,8 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="/information/studentInformation?studentId=${sessionScope.studentId}"><i class="fa fa-circle-o"></i>个人信息</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i>我的班级</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i>任务列表</a></li>
+                    <li><a href="/class/studentClassInformation?studentId=${sessionScope.studentId}"><i class="fa fa-circle-o"></i>我的班级</a></li>
+                    <li><a href="/task/getTaskList?studentId=${sessionScope.studentId}"><i class="fa fa-circle-o"></i>任务列表</a></li>
 
                 </ul>
             </li>

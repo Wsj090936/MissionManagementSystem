@@ -10,7 +10,9 @@ public interface StudentMapper {
     int updateClassId(@Param("classId") String classId, @Param("studentIdList") List<String> studentIdList);
     Student selectStudentById(String StudentId);
 
-    List<Student> getStudentList(String classId);
+    List<Student> getStudentList(@Param("classId") String classId);
+
+    int getStudentCount(@Param("classId") String classId);
 
 
 }

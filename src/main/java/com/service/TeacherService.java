@@ -4,7 +4,7 @@ import com.pojo.Teacher;
 
 public interface TeacherService {
 
-    Teacher getTeacherByTeacherId(String teacherId);
+    Teacher getTeacherByTeacherId(Long teacherId);
 
 
 }

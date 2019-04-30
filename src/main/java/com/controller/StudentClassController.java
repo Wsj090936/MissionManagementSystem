@@ -33,7 +33,7 @@ public class StudentClassController {
 
 
     @RequestMapping("/getStudentList")//查询学生列表，对应页面中学生服务中的我的班级
-    public String getStudentList(Model model,String studentId){
+    public String getStudentList(Model model,Long studentId){
         if(studentId != null){
             List<Student> studentList = studentInformationService.getStudentList(studentId);
             model.addAttribute("stuList",studentList);
@@ -43,7 +43,7 @@ public class StudentClassController {
     }
 
     @RequestMapping("/studentClassInformation")
-    public String getClassInformation(Model model,String studentId){
+    public String getClassInformation(Model model,Long studentId){
         if(studentId != null){
             Student student = studentInformationService.selectStudentById(studentId);
             int studnetCount = studentInformationService.getStudnetCount(student.getClassId());

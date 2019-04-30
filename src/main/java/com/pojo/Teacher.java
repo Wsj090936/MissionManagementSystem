@@ -4,7 +4,7 @@ public class Teacher {
 
     private Integer id;
     private Integer type;// 用户类型1-学生，2-教师，3-管理员
-    private String teacherId;// 学号
+    private Long teacherId;// 学号
     private String password;// 密码
     private String name;// 姓名
     private Integer age;
@@ -27,11 +27,11 @@ public class Teacher {
         this.type = type;
     }
 
-    public String getTeacherId() {
+    public Long getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(String teacherId) {
+    public void setTeacherId(Long teacherId) {
         this.teacherId = teacherId;
     }
 

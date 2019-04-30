@@ -23,7 +23,7 @@ public class LoginServiceImpl implements LoginService {
     TeacherService teacherService;
 
     @Override
-    public boolean studentLogin(String userName, String password, HttpServletRequest request, HttpServletResponse response) {
+    public boolean studentLogin(Long userName, String password, HttpServletRequest request, HttpServletResponse response) {
         //首先校验用户名和密码
         //校验成功后将用户信息存入Session/cookie中，完成后返回成功的状态吗
         Student student = studentInformationService.selectStudentById(userName);
@@ -35,7 +35,7 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public boolean teacherLogin(String userName, String password, HttpServletRequest request, HttpServletResponse response) {
+    public boolean teacherLogin(Long userName, String password, HttpServletRequest request, HttpServletResponse response) {
         Teacher teacher = teacherService.getTeacherByTeacherId(userName);
 
         if(password.equals(teacher.getPassword())){

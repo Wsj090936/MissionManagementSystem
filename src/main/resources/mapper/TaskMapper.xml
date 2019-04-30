@@ -11,14 +11,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="insertTaskAccount" parameterType="com.pojo.Task">
-		INSERT INTO task(teacherId,title,detail,created,updated,classId)
-		values(#{teacherId},#{title},#{detail},#{created},#{updated},#{classId})
+		INSERT INTO task(teacherId,title,detail,created,updated,classId,fileUrl)
+		values(#{teacherId},#{title},#{detail},#{created},#{updated},#{classId},#{fileUrl})
 	</insert>
 
 
-	<select id="getTaskList" resultType="com.pojo.Task" parameterType="java.lang.String">
+	<select id="getTaskList" resultType="com.pojo.Task" parameterType="java.lang.Long">
 		SELECT * from task
 		where classId=#{classId}
+	</select>
+
+
+	<select id="getTaskListByTeacherId" resultType="com.pojo.Task" parameterType="java.lang.Long">
+		SELECT * from task
+		where teacherId=#{teacherId}
 	</select>
 
 </mapper>

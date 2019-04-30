@@ -42,44 +42,5 @@ public class UploadExcelController {
         return "success";
     }
 
-    /**
-     * 学生上传作业的接口
-     * @param file
-     * @return
-     */
-    @RequestMapping("/uploadHomeWork")
-    public String uploadHomeWork(MultipartFile file,String studentId,Integer taskId){
-        String rootPath = "G:\\UploadFiles";
-        String filePath = rootPath + "\\";
-        File dir = new File(filePath);
-        if(!dir.exists()){
-            dir.mkdir();
-        }
-        String originalFilename = file.getOriginalFilename();
-        String newFileName = originalFilename;
-        File writeFile = new File(filePath,newFileName);//指定路径和名称
-        //写入磁盘
-        boolean res = false;
-        try {
-            file.transferTo(writeFile);
-
-            //完后要将提交作业的记录写入数据库
-            res = homeWorkAccountService.insertAccount(studentId, taskId, filePath+newFileName);
-        }catch (Exception e){
-            e.printStackTrace();
-            return "error";
-        }
-        if(res){
-            return "success";
-        }
-        return "error";
-    }
-    /**F
-     * 教师下载作业的接口
-     */
-    @RequestMapping("/downloadHomeWork")
-    public String downloadHomeWork(HttpServletRequest request){
-    return "";
-    }
 
 }

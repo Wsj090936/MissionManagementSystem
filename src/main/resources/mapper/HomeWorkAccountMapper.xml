@@ -5,8 +5,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 命名空间要和mapper类一致 -->
 <mapper namespace="com.dao.HomeWorkAccountMapper">
 	<insert id="insertAccount" parameterType="com.pojo.HomeWorkAccount">
-		INSERT INTO homeworkaccount(studentId,workUrl,created,updated)
-		VALUES(#{studentId},#{workUrl},#{created},#{updated})
+		INSERT INTO homeworkaccount(studentId,workUrl,created,updated,taskId)
+		VALUES(#{studentId},#{workUrl},#{created},#{updated},#{taskId})
 	</insert>
+
+	<select id="selectAccountByTaskId" parameterType="java.lang.Integer" resultType="com.pojo.HomeWorkAccount">
+		SELECT * FROM homeworkaccount
+		WHERE taskId=#{taskId}
+	</select>
 
 </mapper>

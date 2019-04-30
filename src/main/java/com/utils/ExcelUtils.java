@@ -62,13 +62,13 @@ public class ExcelUtils {
                             cellValue = getCellValue(cell);
                             switch (cellNum){//根据不同的列数来判断数据类型
                                 case 0:// 学号
-                                    stu.setStudentId(cellValue);
+                                    stu.setStudentId(Long.valueOf(cellValue));
                                     break;
                                 case 1:// 姓名
                                     stu.setName(cellValue);
                                     break;
                                 case 2:// 班级
-                                    stu.setClassId(cellValue);
+                                    stu.setClassId(Long.valueOf(cellValue));
                                     break;
                                 case 3:// 电话
                                     stu.setPhoneNumber(cellValue);

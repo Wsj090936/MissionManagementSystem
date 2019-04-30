@@ -1,6 +1,7 @@
 package com.service;
 
 import com.pojo.Task;
+import com.pojo.dto.TaskDto;
 
 import java.util.List;
 
@@ -10,6 +11,8 @@ public interface TaskService {
 
     boolean insertTask(Task task);
 
-    List<Task> getTaskList(String studentId);
+    List<TaskDto> getTaskList(Long studentId);
+
+    List<Task> getTeacherTaskList(Long teacherId);
 
 }

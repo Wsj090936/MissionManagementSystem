@@ -34,21 +34,19 @@
                         <th>班级编号</th>
                         <th>创建时间</th>
                         <th>标题</th>
-                        <th>发布人</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${taskDtoList}" var="task">
+                    <c:forEach items="${taskList}" var="task">
                         <tr>
                             <td>${task.classId}</td>
                             <td>${task.created}</td>
                             <td>${task.title}</td>
-                            <td>${task.teacherName}</td>
                             <td>
                                 <a href="/task/taskDetail?id=${task.id}" type="button" class="btn  btn-sm btn-primary"><i class="fa fa-edit"></i>查看详情</a>&nbsp;
                             </td>
                             <td>
-                                <a href="/task/downloadTaskFile?id=${task.id}" type="button" class="btn  btn-sm btn-primary"><i class="fa fa-edit"></i>下载附件</a>&nbsp;
+                                <a href="/task/taskFinishDetail?id=${task.id}" type="button" class="btn  btn-sm btn-primary"><i class="fa fa-edit"></i>提交情况</a>&nbsp;
                             </td>
                         </tr>
                     </c:forEach>
@@ -64,11 +62,5 @@
 <jsp:include page="../include/footer.jsp"/>
 
 </body>
-<script>
-    var haveFile = ${haveFile};
-    if(!haveFile){
-        alert("当前任务没有附件");
-    }
 
-</script>
 </html>

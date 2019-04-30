@@ -11,6 +11,8 @@ public interface TaskMapper {
 
     int insertTaskAccount(Task task);
 
-    List<Task> getTaskList(@Param("classId") String classId);
+    List<Task> getTaskList(@Param("classId") Long classId);
+
+    List<Task> getTaskListByTeacherId(@Param("teacherId") Long teacherId);
 
 }

@@ -16,7 +16,7 @@ public class InformationController {
     StudentInformationService studentInformationService;
 
     @RequestMapping("/studentInformation")
-    public String getStudentInfo(Model model,String studentId){
+    public String getStudentInfo(Model model,Long studentId){
         if(studentId != null){
             Student student = studentInformationService.selectStudentById(studentId);
             model.addAttribute("stu",student);

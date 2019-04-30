@@ -25,7 +25,7 @@ public class StudentInformationServiceImpl implements StudentInformationService 
     }
 
     @Override
-    public Student selectStudentById(String studentId) {
+    public Student selectStudentById(Long studentId) {
 
         Student student = studentMapper.selectStudentById(studentId);
 
@@ -33,7 +33,7 @@ public class StudentInformationServiceImpl implements StudentInformationService 
     }
 
     @Override
-    public List<Student> getStudentList(String studentId) {
+    public List<Student> getStudentList(Long studentId) {
 
         Student student = selectStudentById(studentId);
         List<Student> studentList = new ArrayList<>();
@@ -44,7 +44,7 @@ public class StudentInformationServiceImpl implements StudentInformationService 
     }
 
     @Override
-    public int getStudnetCount(String classId) {
+    public int getStudnetCount(Long classId) {
 
         int studentCount = studentMapper.getStudentCount(classId);
 

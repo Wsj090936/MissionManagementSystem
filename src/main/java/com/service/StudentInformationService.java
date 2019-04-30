@@ -10,10 +10,10 @@ import java.util.List;
 public interface StudentInformationService {
     boolean insertStudent(Student student);// 插入学生
 
-    Student selectStudentById(String studentId);
+    Student selectStudentById(Long studentId);
 
-    List<Student> getStudentList(String studentId);
+    List<Student> getStudentList(Long studentId);
 
-    int getStudnetCount(String classId);
+    int getStudnetCount(Long classId);
 
 }

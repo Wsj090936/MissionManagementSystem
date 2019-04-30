@@ -34,10 +34,10 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">选择合适的账户登陆</p>
-        <form action="/login/studentLogin" method="post">
+        <form action="/login/teacherLogin" method="post">
 
             <div class="form-group has-feedback">
-                <input type="text" name="userName" class="form-control" placeholder="学号">
+                <input type="text" name="userName" class="form-control" placeholder="账号">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
@@ -62,7 +62,7 @@
 
         <div class="social-auth-links text-center">
             <p>- OR -</p>
-            <a href="/login/teacherLoginPage" class="btn btn-block btn-social btn-wechat btn-flat"><i class="fa fa-weixin"></i> 使用教师账号登陆</a>
+            <a href="/login/studentLoginPage" class="btn btn-block btn-social btn-wechat btn-flat"><i class="fa fa-weixin"></i> 使用学生账号登陆</a>
 <%--
             <a href="#" class="btn btn-block btn-social btn-qq btn-flat"><i class="fa fa-qq"></i> 使用QQ登陆</a>
 --%>

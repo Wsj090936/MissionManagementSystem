@@ -14,7 +14,7 @@ public class TeaherServiceImpl implements TeacherService {
     TeacherMapper teacherMapper;
 
     @Override
-    public Teacher getTeacherByTeacherId(String teacherId) {
+    public Teacher getTeacherByTeacherId(Long teacherId) {
 
         Teacher teacher = teacherMapper.getTeacherById(teacherId);
         if(teacher == null){

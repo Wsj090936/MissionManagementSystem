@@ -12,10 +12,20 @@ package com.pojo;
  */
 public class HomeWorkAccount {
     private Integer id;
-    private String studentId;
+    private Long studentId;
     private String workUrl;
     private String created;
     private String updated;
+    private Integer taskId;
+
+    public Integer getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(Integer taskId) {
+        this.taskId = taskId;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -24,11 +34,11 @@ public class HomeWorkAccount {
         this.id = id;
     }
 
-    public String getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 

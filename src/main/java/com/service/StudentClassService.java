@@ -5,5 +5,5 @@ package com.service;
  * 班级相关操作的Service
  */
 public interface StudentClassService {
-    boolean createStudentClass(String classId);
+    boolean createStudentClass(Long classId);
 }

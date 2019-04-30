@@ -7,12 +7,12 @@ import java.util.List;
 
 public interface StudentMapper {
     int insertStudent(Student student);
-    int updateClassId(@Param("classId") String classId, @Param("studentIdList") List<String> studentIdList);
-    Student selectStudentById(String StudentId);
+    int updateClassId(@Param("classId") Long classId, @Param("studentIdList") List<Long> studentIdList);
+    Student selectStudentById(Long StudentId);
 
-    List<Student> getStudentList(@Param("classId") String classId);
+    List<Student> getStudentList(@Param("classId") Long classId);
 
-    int getStudentCount(@Param("classId") String classId);
+    int getStudentCount(@Param("classId") Long classId);
 
 
 }

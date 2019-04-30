@@ -18,7 +18,7 @@
                 <img src="/adminLte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p><%--这里可以加上用户的姓名--%>
+                <p>${sessionScope.user.name}</p><%--这里可以加上用户的姓名--%>
                 <!-- Status -->
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -50,7 +50,7 @@
                 <ul class="treeview-menu">
                     <li><a href="/information/studentInformation?studentId=${sessionScope.studentId}"><i class="fa fa-circle-o"></i>个人信息</a></li>
                     <li><a href="/class/studentClassInformation?studentId=${sessionScope.studentId}"><i class="fa fa-circle-o"></i>我的班级</a></li>
-                    <li><a href="/task/getTaskList?studentId=${sessionScope.studentId}"><i class="fa fa-circle-o"></i>任务列表</a></li>
+                    <li><a href="/task/getTaskList?userId=${sessionScope.studentId}&type=1"><i class="fa fa-circle-o"></i>任务列表</a></li>
 
                 </ul>
             </li>
@@ -63,8 +63,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/research/paper"><i class="fa fa-circle-o"></i>任务列表</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i>发布任务</a></li>
+                    <li><a href="/task/getTaskList?userId=${sessionScope.teacherId}&type=2"><i class="fa fa-circle-o"></i>任务列表</a></li>
+                    <li><a href="/task/toAddTask"><i class="fa fa-circle-o"></i>发布任务</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i>班级管理</a></li>
                 </ul>
             </li>

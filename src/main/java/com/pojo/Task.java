@@ -12,18 +12,27 @@ package com.pojo;
 public class Task {
 
     private Integer id;
-    private String teacherId;
+    private Long teacherId;
     private String title;
     private String detail;
     private String created;
     private String updated;
-    private String classId;
+    private Long classId;
+    private String fileUrl;
 
-    public String getClassId() {
+    public String getFileUrl() {
+        return fileUrl;
+    }
+
+    public void setFileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
+    }
+
+    public Long getClassId() {
         return classId;
     }
 
-    public void setClassId(String classId) {
+    public void setClassId(Long classId) {
         this.classId = classId;
     }
 
@@ -35,11 +44,11 @@ public class Task {
         this.id = id;
     }
 
-    public String getTeacherId() {
+    public Long getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(String teacherId) {
+    public void setTeacherId(Long teacherId) {
         this.teacherId = teacherId;
     }
 

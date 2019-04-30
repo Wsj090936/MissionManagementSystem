@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface LoginService {
 
-    boolean studentLogin(String userName, String password, HttpServletRequest request, HttpServletResponse response);
+    boolean studentLogin(Long userName, String password, HttpServletRequest request, HttpServletResponse response);
 
-    boolean teacherLogin(String userName, String password, HttpServletRequest request, HttpServletResponse response);
+    boolean teacherLogin(Long userName, String password, HttpServletRequest request, HttpServletResponse response);
 
 }

@@ -10,7 +10,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>任务列表</title>
+    <title>作业提交情况</title>
     <jsp:include page="../include/header.jsp"/>
 </head>
 
@@ -26,30 +26,26 @@
         <section class="content">
             <div class="box-body table-responsive no-padding">
                 <div class="box-header with-border">
-                    <h3 class="box-title">任务列表</h3>
+                    <h3 class="box-title">学生列表</h3>
                 </div>
                 <table class="table table-hover">
                     <thead>
                     <tr>
                         <th>班级编号</th>
-                        <th>创建时间</th>
-                        <th>标题</th>
-                        <th>发布人</th>
+                        <th>姓名</th>
+                        <th>学号</th>
+                        <th>是否提交</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${taskDtoList}" var="task">
+                    <c:forEach items="${homeWorkAccountDtos}" var="account">
                         <tr>
-                            <td>${task.classId}</td>
-                            <td>${task.created}</td>
-                            <td>${task.title}</td>
-                            <td>${task.teacherName}</td>
-                            <td>
-                                <a href="/task/taskDetail?id=${task.id}" type="button" class="btn  btn-sm btn-primary"><i class="fa fa-edit"></i>查看详情</a>&nbsp;
-                            </td>
-                            <td>
-                                <a href="/task/downloadTaskFile?id=${task.id}" type="button" class="btn  btn-sm btn-primary"><i class="fa fa-edit"></i>下载附件</a>&nbsp;
-                            </td>
+                            <td>${account.classId}</td>
+                            <td>${account.name}</td>
+                            <td>${account.studentId}</td>
+                            <c:if test="${account.isUpload==1}"><td>已提交</td></c:if>
+                            <c:if test="${account.isUpload==2}"><td>未提交</td></c:if>
+
                         </tr>
                     </c:forEach>
 
@@ -64,11 +60,5 @@
 <jsp:include page="../include/footer.jsp"/>
 
 </body>
-<script>
-    var haveFile = ${haveFile};
-    if(!haveFile){
-        alert("当前任务没有附件");
-    }
 
-</script>
 </html>

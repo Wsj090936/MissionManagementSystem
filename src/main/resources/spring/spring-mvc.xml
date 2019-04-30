@@ -40,15 +40,13 @@
     <context:component-scan base-package="com.controller" />
 
     <!-- 拦截器配置 -->
-<!--    <mvc:interceptors>
+    <mvc:interceptors>
         <mvc:interceptor>
-            &lt;!&ndash; 拦截什么路径（所有路径） &ndash;&gt;
             <mvc:mapping path="/**"/>
-            &lt;!&ndash; 拦截过滤 &ndash;&gt;
-            <mvc:exclude-mapping path="/login"/>
+            <mvc:exclude-mapping path="/login/**"/>
             <mvc:exclude-mapping path="/adminLte/**"/>
             <bean class="com.interceptor.LoginInterceptor" />
         </mvc:interceptor>
-    </mvc:interceptors>-->
+    </mvc:interceptors>
 
 </beans>

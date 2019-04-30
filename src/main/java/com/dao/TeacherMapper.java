@@ -4,7 +4,7 @@ import com.pojo.Teacher;
 
 public interface TeacherMapper {
 
-    Teacher getTeacherById(String teacherId);
+    Teacher getTeacherById(Long teacherId);
 
 
 }

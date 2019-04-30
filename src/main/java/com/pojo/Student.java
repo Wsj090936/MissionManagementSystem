@@ -6,11 +6,11 @@ package com.pojo;
 public class Student {
     private Integer id;
     private Integer type;// 用户类型1-学生，2-教师，3-管理员
-    private String studentId;// 学号
+    private Long studentId;// 学号
     private String password;// 密码
     private String name;// 姓名
     private Integer age;
-    private String classId;// 所在班级
+    private Long classId;// 所在班级
     private Integer grade;// 年级
     private String phoneNumber;// 电话
     private String idCard;// 身份证号
@@ -31,11 +31,11 @@ public class Student {
         this.type = type;
     }
 
-    public String getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
@@ -63,11 +63,11 @@ public class Student {
         this.age = age;
     }
 
-    public String getClassId() {
+    public Long getClassId() {
         return classId;
     }
 
-    public void setClassId(String classId) {
+    public void setClassId(Long classId) {
         this.classId = classId;
     }
 

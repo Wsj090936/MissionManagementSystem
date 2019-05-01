@@ -14,5 +14,6 @@ public interface StudentMapper {
 
     int getStudentCount(@Param("classId") Long classId);
 
+    int updateStudent(Student student);
 
 }

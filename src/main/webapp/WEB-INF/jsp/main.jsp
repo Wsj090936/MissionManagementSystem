@@ -7,7 +7,13 @@
     <title>我的信息 | 控制面板</title>
     <jsp:include page="../include/header.jsp"/>
 </head>
+<script>
+    var success = ${success};
+    if(success){
+        alert("修改成功");
+    }
 
+</script>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../include/nav.jsp"/>

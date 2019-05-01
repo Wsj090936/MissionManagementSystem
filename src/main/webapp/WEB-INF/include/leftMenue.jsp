@@ -65,7 +65,7 @@
                 <ul class="treeview-menu">
                     <li><a href="/task/getTaskList?userId=${sessionScope.teacherId}&type=2"><i class="fa fa-circle-o"></i>任务列表</a></li>
                     <li><a href="/task/toAddTask"><i class="fa fa-circle-o"></i>发布任务</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i>班级管理</a></li>
+                    <li><a href="/class/teacherClass?teacherId=${sessionScope.teacherId}"><i class="fa fa-circle-o"></i>班级管理</a></li>
                 </ul>
             </li>
         </ul>

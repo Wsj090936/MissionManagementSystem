@@ -26,4 +26,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where classId=#{classId}
 	</select>
 
+	<update id="updateStudent" parameterType="com.pojo.Student">
+		update student
+		set name=#{name},age=#{age},classId=#{classId},grade=#{grade},phoneNumber=#{phoneNumber},idCard=#{idCard}
+		WHERE  studentId=#{studentId}
+	</update>
+
 </mapper>

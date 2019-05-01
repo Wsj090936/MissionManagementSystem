@@ -16,4 +16,8 @@ public interface StudentInformationService {
 
     int getStudnetCount(Long classId);
 
+    List<Student> getStudentListByClassId(Long classId);
+
+    boolean updateStudent(Student student);
+
 }

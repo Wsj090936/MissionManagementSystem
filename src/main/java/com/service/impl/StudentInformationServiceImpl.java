@@ -44,10 +44,30 @@ public class StudentInformationServiceImpl implements StudentInformationService 
     }
 
     @Override
+    public List<Student> getStudentListByClassId(Long classId) {
+
+        if(classId != null){
+            List<Student> list  = studentMapper.getStudentList(classId);
+            return list;
+        }
+
+        return new ArrayList<>();
+    }
+
+    @Override
     public int getStudnetCount(Long classId) {
 
         int studentCount = studentMapper.getStudentCount(classId);
 
         return studentCount;
+    }
+
+    @Override
+    public boolean updateStudent(Student student) {
+        if(student != null){
+            int i = studentMapper.updateStudent(student);
+            return i == 1;
+        }
+        return false;
     }
 }

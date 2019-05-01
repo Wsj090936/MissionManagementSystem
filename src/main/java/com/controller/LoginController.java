@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.UUID;
 
 /**
@@ -98,5 +99,14 @@ public class LoginController {
             return "error";
         }
 
-        return "error";    }
+        return "error";
+    }
+    @RequestMapping("/logout")
+    public String logOut(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        if(session != null){// 注销
+            session.invalidate();
+        }
+        return "redirect:/login/loginpage";// 完后重定向到登陆界面
+    }
 }

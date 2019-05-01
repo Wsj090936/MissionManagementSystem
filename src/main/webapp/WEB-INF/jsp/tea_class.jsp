@@ -35,6 +35,11 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">班级成员</h3>
                 </div>
+                <form id= "form1" enctype ="multipart/form-data" action= "/upload/uploadExcel" method ="post" target= "hframe">
+                    上传学生名单： <input type ="file" name="file" value="file"/><br/>
+                    <input type ="submit" value="创建班级"/>
+                    <iframe name ="hframe" id="hframe" style=" display: none" ></iframe >
+                </form>
                 <table class="table table-hover">
                     <thead>
                     <tr>

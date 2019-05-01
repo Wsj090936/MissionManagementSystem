@@ -10,4 +10,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where teacherId=#{teacherId}
 	</select>
 
+	<select id="getAccountByPojo" parameterType="com.pojo.TeacherClass" resultType="com.pojo.TeacherClass">
+
+		SELECT * FROM class_teacher
+		where teacherId=#{teacherId} AND classId=#{classId}
+	</select>
+
+	<insert id="insertAccount" parameterType="com.pojo.TeacherClass">
+		INSERT INTO class_teacher(teacherId,classId)
+		VALUES(#{teacherId},#{classId})
+	</insert>
+
+
 </mapper>

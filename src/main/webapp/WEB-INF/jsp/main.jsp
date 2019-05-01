@@ -12,6 +12,10 @@
     if(success){
         alert("修改成功");
     }
+    var createClass = ${createClass}
+    if(createClass){
+        alert("创建成功");
+    }
 
 </script>
 <body class="hold-transition skin-blue sidebar-mini">

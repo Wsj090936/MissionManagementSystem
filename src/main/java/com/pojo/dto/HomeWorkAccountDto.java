@@ -8,6 +8,15 @@ public class HomeWorkAccountDto {
     private String name;
     private Long classId;
     private Integer isUpload;// 是否上传 1-是 2-否
+    private Integer taskId;
+
+    public Integer getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(Integer taskId) {
+        this.taskId = taskId;
+    }
 
     public Long getStudentId() {
         return studentId;

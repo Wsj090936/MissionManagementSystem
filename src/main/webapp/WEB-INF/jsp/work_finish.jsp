@@ -35,6 +35,8 @@
                         <th>姓名</th>
                         <th>学号</th>
                         <th>是否提交</th>
+                        <th>附件</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -45,7 +47,9 @@
                             <td>${account.studentId}</td>
                             <c:if test="${account.isUpload==1}"><td>已提交</td></c:if>
                             <c:if test="${account.isUpload==2}"><td>未提交</td></c:if>
-
+                            <td>
+                                <a href="/task/downloadHomeWork?studentId=${account.studentId}&taskId=${account.taskId}" type="button" class="btn  btn-sm btn-primary"><i class="fa fa-edit"></i>下载附件</a>&nbsp;
+                            </td>
                         </tr>
                     </c:forEach>
 

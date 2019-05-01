@@ -16,11 +16,17 @@ public class StudentInformationServiceImpl implements StudentInformationService 
     StudentMapper studentMapper;
 
     @Override
-    public boolean insertStudent(Student student) {
-        int isSuccess = studentMapper.insertStudent(student);
-        if(isSuccess > 0){
-            return true;
+    public boolean insertStudent(Student student) {// 这里要进行学生是否重复的判定
+
+        Student stu = studentMapper.selectStudentById(student.getStudentId());
+        if(stu == null){// 表中无此学生才插入
+            int isSuccess = studentMapper.insertStudent(student);
+            if(isSuccess > 0){
+                return true;
+            }
         }
+
+
         return false;
     }
 

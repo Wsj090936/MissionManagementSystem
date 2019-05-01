@@ -1,6 +1,7 @@
 package com.controller;
 
 
+import com.pojo.HomeWorkAccount;
 import com.pojo.Task;
 import com.pojo.dto.HomeWorkAccountDto;
 import com.pojo.dto.TaskDto;
@@ -138,8 +139,17 @@ public class TaskController {
      * 教师下载作业的接口
      */
     @RequestMapping("/downloadHomeWork")
-    public String downloadHomeWork(HttpServletRequest request){
-        return "";
+    public String downloadHomeWork(HttpServletResponse response,HttpServletRequest request,Integer taskId,Long studentId){
+
+        HomeWorkAccount account = homeWorkAccountService.getAccount(taskId, studentId);
+        String filePath = null;
+        if(account != null){
+            filePath = account.getWorkUrl();
+        }
+        if(filePath == null){// 没有附件
+            return "";
+        }
+        return FileUtils.downloadFile(filePath,response,request);
     }
 
     /**

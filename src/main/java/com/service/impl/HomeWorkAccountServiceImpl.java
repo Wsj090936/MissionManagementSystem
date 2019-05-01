@@ -33,6 +33,13 @@ public class HomeWorkAccountServiceImpl implements HomeWorkAccountService {
     @Autowired
     TaskService taskService;
 
+
+    @Override
+    public HomeWorkAccount getAccount(Integer taskId, Long studentId) {
+        HomeWorkAccount accountByTaskIdAndStudentId = homeWorkAccountMapper.getAccountByTaskIdAndStudentId(taskId, studentId);
+        return accountByTaskIdAndStudentId;
+    }
+
     @Override
     public boolean insertAccount(Long studentId,Integer taskId,String workUrl) {
         //先根据studentId查询到上传作业的学生信息
@@ -86,6 +93,7 @@ public class HomeWorkAccountServiceImpl implements HomeWorkAccountService {
             dto.setClassId(classId);
             dto.setName(stu.getName());
             dto.setStudentId(stuId);
+            dto.setTaskId(taskId);
             res.add(dto);
         }
 

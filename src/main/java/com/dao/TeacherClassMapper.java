@@ -10,4 +10,8 @@ public interface TeacherClassMapper {
 
     List<TeacherClass> getAccountByTeacherId(@Param("teacherId") Long teacherId);
 
+    TeacherClass getAccountByPojo(TeacherClass teacherClass);
+
+    int insertAccount(TeacherClass teacherClass);
+
 }

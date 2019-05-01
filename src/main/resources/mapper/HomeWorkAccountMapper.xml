@@ -14,4 +14,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE taskId=#{taskId}
 	</select>
 
+	<select id="getAccountByTaskIdAndStudentId" resultType="com.pojo.HomeWorkAccount">
+		SELECT * FROM homeworkaccount
+		WHERE taskId=#{taskId} AND studentId=#{studentId}
+	</select>
+
 </mapper>

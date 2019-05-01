@@ -11,4 +11,6 @@ public interface HomeWorkAccountMapper {
 
     List<HomeWorkAccount> selectAccountByTaskId(@Param("taskId") Integer taskId);
 
+    HomeWorkAccount getAccountByTaskIdAndStudentId(@Param("taskId") Integer taskId,@Param("studentId") Long studentId);
+
 }

@@ -10,4 +10,6 @@ public interface HomeWorkAccountService {
     boolean insertAccount(Long studentId,Integer taskId,String workUrl);
 
     List<HomeWorkAccountDto> getuploadDetailListByTaskId(Integer taskId);
+
+    HomeWorkAccount getAccount(Integer taskId,Long studentId);
 }

@@ -73,7 +73,7 @@
                             <input class="form-control"  name ="idCard" value="${stu.idCard}" placeholder="">
                         </div>
                         <div class="form-group">
-                            <input type ="submit" value="提交修改"/>
+                            <button type="submit" class="btn btn-primary">提交修改</button>
                         </div>
                     </div>
                 </form>

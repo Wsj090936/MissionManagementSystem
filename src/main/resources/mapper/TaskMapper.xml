@@ -27,4 +27,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where teacherId=#{teacherId}
 	</select>
 
+	<update id="updateTask" parameterType="com.pojo.Task">
+		UPDATE task
+		set
+		<if test="title != null and title != ''">title = #{title},</if>
+		<if test="detail != null and detail != ''">detail = #{detail},</if>
+		<if test="fileUrl != null and fileUrl != ''">fileUrl = #{fileUrl},</if>
+		updated = #{updated}
+		WHERE id=#{id}
+	</update>
+
 </mapper>

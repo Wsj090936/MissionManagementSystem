@@ -15,4 +15,6 @@ public interface TaskMapper {
 
     List<Task> getTaskListByTeacherId(@Param("teacherId") Long teacherId);
 
+    int updateTask(Task task);
+
 }

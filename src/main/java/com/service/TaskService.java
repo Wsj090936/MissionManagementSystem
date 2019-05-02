@@ -15,4 +15,6 @@ public interface TaskService {
 
     List<Task> getTeacherTaskList(Long teacherId);
 
+    boolean editTaskInfo(Task task);
+
 }

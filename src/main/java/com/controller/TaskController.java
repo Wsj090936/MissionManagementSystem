@@ -15,10 +15,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -70,71 +72,30 @@ public class TaskController {
 
 
     @RequestMapping("/getTaskList")
-    public String getTaskList(Model model,Long userId,Integer type){
-        if(type == 1){// 学生的任务列表
-            if(userId != null){
-                List<TaskDto> taskDtoList = taskService.getTaskList(userId);
-                model.addAttribute("taskDtoList",taskDtoList);
-                return "stu_task_list";
-            }
-        }else if(type == 2){// 教师发布的任务列表
+    public String getTaskList(Model model,Long userId){
+
             List<Task> teacherTaskList = null;
             if(userId != null){
                 teacherTaskList = taskService.getTeacherTaskList(userId);
             }
             model.addAttribute("taskList",teacherTaskList);
             return "tea_task_list";
-        }
 
-        return "error";
+
     }
 
-    @RequestMapping("/taskDetail")
+    @RequestMapping("/taskDetail")// 这里改为教师的接口
     public String taskDetail(Model model,Integer id){
         if(id != null){
             Task task = taskService.getTaskById(id);
             model.addAttribute("task",task);
-            return "stu_task_info";
+            return "tea_task_info";
 
         }
         return "error";
     }
 
-    /**
-     * 学生上传作业的接口
-     * @param file
-     * @return
-     */
-    @RequestMapping("/uploadHomeWork")
-    public String uploadHomeWork(Model model,MultipartFile file, Integer taskId,HttpServletRequest request, HttpServletResponse response) throws  Exception{
-        Long studentId = (Long) request.getSession().getAttribute("studentId");
-        String rootPath = "G:\\UploadFiles";
-        String filePath = rootPath + "\\";
-        File dir = new File(filePath);
-        if(!dir.exists()){
-            dir.mkdir();
-        }
-        String originalFilename = file.getOriginalFilename();
-        String newFileName = originalFilename;
-        File writeFile = new File(filePath,newFileName);//指定路径和名称
-        //写入磁盘
-        boolean res = false;
-        try {
-            file.transferTo(writeFile);
 
-            //完后要将提交作业的记录写入数据库
-            res = homeWorkAccountService.insertAccount(studentId, taskId, filePath+newFileName);
-        }catch (Exception e){
-            e.printStackTrace();
-            return "error";
-        }
-        if(res){
-            model.addAttribute("isSuccess",true);
-            return "stu_task_info";
-        }
-        model.addAttribute("isSuccess",false);
-        return "stu_task_info";
-    }
     /**F
      * 教师下载作业的接口
      */
@@ -152,21 +113,7 @@ public class TaskController {
         return FileUtils.downloadFile(filePath,response,request);
     }
 
-    /**
-     * 学生下载任务附件
-     * @return
-     */
-    @RequestMapping("/downloadTaskFile")
-    public String downloadTaskFile(HttpServletRequest request,HttpServletResponse response,Integer id,Model model){
-        Task taskById = taskService.getTaskById(id);
-        String fileUrl = taskById.getFileUrl();
-        if(fileUrl.equals("") || fileUrl == null){// 说明没有附件
-            model.addAttribute("haveFile",false);
-            return "stu_task_list";
-        }
-        model.addAttribute("haveFile",true);
-        return FileUtils.downloadFile(fileUrl,response,request);
-    }
+
 
     @RequestMapping("/toAddTask")
     public String toAddTask(){
@@ -188,24 +135,8 @@ public class TaskController {
 
         if(file != null && file.getSize() > 0){// 如果上传了文件 就到文件的地址
             String rootPath = "G:\\UploadFiles\\taskFiles";
-            String filePath = rootPath + "\\";
-            File dir = new File(filePath);
-            if(!dir.exists()){
-                dir.mkdir();
-            }
-            String originalFilename = file.getOriginalFilename();
-            String newFileName = originalFilename;
-            File writeFile = new File(filePath,newFileName);//指定路径和名称
-            //写入磁盘
-            try {
-                file.transferTo(writeFile);
-                task.setFileUrl(filePath+newFileName);// 设置文件路径
-
-            }catch (Exception e){
-                e.printStackTrace();
-                return "error";
-            }
-
+            String url = FileUtils.uploadFile(rootPath, file);
+            task.setFileUrl(url);// 设置文件路径
         }
         //完后写入数据库
         res = taskService.insertTask(task);// 更新任务表
@@ -230,6 +161,27 @@ public class TaskController {
         List<HomeWorkAccountDto> homeWorkAccountDtos = homeWorkAccountService.getuploadDetailListByTaskId(id);
         model.addAttribute("homeWorkAccountDtos",homeWorkAccountDtos);
         return "work_finish";
+    }
+
+    /**
+     * 修改任务信息
+     * @param task
+     * @return
+     */
+    @RequestMapping("/editTask")
+    public String editTask(Task task, MultipartFile file, Model model,HttpServletRequest request){
+        boolean res = false;
+        if(task != null){
+            if(file != null && file.getSize() > 0){//看是否有必要更新文件地址
+                String rootPath = "G:\\UploadFiles\\taskFiles";
+                String url = FileUtils.uploadFile(rootPath, file);
+                if(!url.equals("error")){
+                    task.setFileUrl(url);
+                }
+            }
+            res = taskService.editTaskInfo(task);
+        }
+        return "redirect:/task/getTaskList?userId="+request.getSession().getAttribute("teacherId");
     }
 
 }

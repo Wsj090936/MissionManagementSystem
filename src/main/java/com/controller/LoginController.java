@@ -49,6 +49,7 @@ public class LoginController {
             Student student = studentInformationService.selectStudentById(userName);
             request.getSession().setAttribute("studentId",userName);
             request.getSession().setAttribute("user",student);
+            request.getSession().setAttribute("type",1);
 
             String uuid = UUID.randomUUID().toString();
             request.getSession().setAttribute("token",uuid);// 设置token
@@ -85,6 +86,7 @@ public class LoginController {
             String token = UUID.randomUUID().toString();
             request.getSession().setAttribute("token",token);
             request.getSession().setAttribute("user",teacher);
+            request.getSession().setAttribute("type",2);
 
             CookieUtils.setCookie(request,response,"token",token);
             request.getSession().setAttribute("teacherId",userName);
@@ -108,5 +110,9 @@ public class LoginController {
             session.invalidate();
         }
         return "redirect:/login/loginpage";// 完后重定向到登陆界面
+    }
+    @RequestMapping("/permissionPage")
+    public String toPermissionPage(){
+        return "permission";
     }
 }

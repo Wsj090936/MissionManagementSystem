@@ -1,5 +1,7 @@
 package com.utils;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -55,6 +57,31 @@ public class FileUtils {
 
         }
         return null;
+    }
+
+    /**
+     * 文件上传方法，返回上传后的文件路径
+     * @param rootPath
+     * @param file
+     * @return
+     */
+    public static String uploadFile(String rootPath, MultipartFile file){
+        String filePath = rootPath + "\\";
+        File dir = new File(filePath);
+        if(!dir.exists()){
+            dir.mkdir();
+        }
+        String originalFilename = file.getOriginalFilename();
+        String newFileName = originalFilename;
+        File writeFile = new File(filePath,newFileName);//指定路径和名称
+        //写入磁盘
+        try {
+            file.transferTo(writeFile);
+        }catch (Exception e){
+            e.printStackTrace();
+            return "error";
+        }
+        return filePath+newFileName;
     }
 
 }

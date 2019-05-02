@@ -47,6 +47,24 @@
             <mvc:exclude-mapping path="/adminLte/**"/>
             <bean class="com.interceptor.LoginInterceptor" />
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/task/**"/>
+            <mvc:mapping path="/class/**"/>
+            <mvc:mapping path="/upload/**"/>
+            <mvc:exclude-mapping path="/login/**"/>
+            <mvc:exclude-mapping path="/adminLte/**"/>
+            <mvc:exclude-mapping path="/student/**"/>
+            <bean class="com.interceptor.StudentInterceptor" />
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/student/**"/>
+            <mvc:exclude-mapping path="/task/**"/>
+            <mvc:exclude-mapping path="/class/**"/>
+            <mvc:exclude-mapping path="/upload/**"/>
+            <mvc:exclude-mapping path="/login/**"/>
+            <mvc:exclude-mapping path="/adminLte/**"/>
+            <bean class="com.interceptor.TeacherInterceptor" /><!--教师不能访问学生的页面-->
+        </mvc:interceptor>
     </mvc:interceptors>
 
 </beans>

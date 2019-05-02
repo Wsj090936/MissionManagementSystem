@@ -25,11 +25,11 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="box-body table-responsive no-padding">
-                <div class="box-header with-border">
-                    <h3 class="box-title">班级成员</h3>
-                </div>
-                <table class="table table-hover">
+            <div class="panel panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading">班级成员</div>
+                <!-- Table -->
+                <table class="table">
                     <thead>
                     <tr>
                         <th>班级编号</th>
@@ -47,15 +47,13 @@
                             <td>${stu.name}</td>
                             <td>${stu.phoneNumber}</td>
                             <td>${stu.age}</td>
-<%--                            <td>
-                                <a href="#" type="button" class="btn  btn-sm btn-primary"><i class="fa fa-edit"></i>查看详情</a>&nbsp;
-                            </td>--%>
                         </tr>
                     </c:forEach>
 
                     </tbody>
                 </table>
             </div>
+
         </section>
     </div>
     <jsp:include page="../include/copyright.jsp"/>

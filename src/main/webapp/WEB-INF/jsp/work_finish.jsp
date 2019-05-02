@@ -24,11 +24,14 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="box-body table-responsive no-padding">
-                <div class="box-header with-border">
-                    <h3 class="box-title">学生列表</h3>
-                </div>
-                <table class="table table-hover">
+
+            <div class="panel panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading">学生列表</div>
+
+                <!-- Table -->
+                <table class="table">
+
                     <thead>
                     <tr>
                         <th>班级编号</th>
@@ -54,6 +57,7 @@
                     </c:forEach>
 
                     </tbody>
+
                 </table>
             </div>
         </section>

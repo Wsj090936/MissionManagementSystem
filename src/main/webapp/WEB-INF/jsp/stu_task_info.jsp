@@ -24,21 +24,22 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="box-body table-responsive no-padding">
-                <div class="box-header with-border">
-                    <h3 class="box-title">任务详情</h3>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">任务详情</h3>
                 </div>
-                <h4 align="center">${task.title}</h4><br/>
-                <textarea rows="3" cols="20">
-                ${task.detail}
-                </textarea>
-                <form id= "form1" enctype ="multipart/form-data" action= "/task/uploadHomeWork" method ="post" target= "hframe">
-                    <input type="hidden" name="taskId" value="${task.id}" />
-                    上传作业： <input type ="file" name="file" value="file"/><br/>
-                    <input type ="submit" value="提交作业"/>
-                    <iframe name ="hframe" id="hframe" style=" display: none" ></iframe >
-                </form>
+                <div class="panel-body">
+                    <h4 align="center">${task.title}</h4><br/>
+                    <textarea readonly="readonly" rows="20" cols="168">${task.detail}</textarea>
+                    <form id= "form1" enctype ="multipart/form-data" action= "/student/uploadHomeWork" method ="post" target= "hframe">
+                        <input type="hidden" name="taskId" value="${task.id}" />
+                        上传作业： <input type ="file" name="file" value="file"/><br/>
+                        <button type="submit" class="btn btn-primary">提交</button>
+                        <iframe name ="hframe" id="hframe" style=" display: none" ></iframe >
+                    </form>
+                </div>
             </div>
+
         </section>
     </div>
     <jsp:include page="../include/copyright.jsp"/>

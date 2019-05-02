@@ -8,6 +8,7 @@ import com.pojo.Task;
 import com.pojo.Teacher;
 import com.pojo.dto.TaskDto;
 import com.service.TaskService;
+import com.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -85,5 +86,12 @@ public class TaskServiceImpl implements TaskService {
         List<Task> taskListByTeacherId = taskMapper.getTaskListByTeacherId(teacherId);
 
         return taskListByTeacherId;
+    }
+
+    @Override
+    public boolean editTaskInfo(Task task) {
+        task.setUpdated(DateUtils.getNowDate());
+        int res = taskMapper.updateTask(task);
+        return res == 1;
     }
 }

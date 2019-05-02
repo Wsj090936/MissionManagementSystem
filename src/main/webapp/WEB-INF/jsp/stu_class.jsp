@@ -25,8 +25,11 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="box-body table-responsive no-padding">
-                <table class="table table-hover">
+            <div class="panel panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading">我的班级</div>
+                <!-- Table -->
+                <table class="table">
                     <thead>
                     <tr>
                         <th>班级编号</th>
@@ -35,22 +38,23 @@
                     </tr>
                     </thead>
                     <tbody>
-<%--                    <c:forEach items="${papers}" var="paper">--%>
-                        <tr>
-<%--
-                            <td><a href="${paper.url}" target="view_window">${paper.paperName}</a></td>
---%>
-                            <td>${stu.classId}</td>
-                            <td>${stuCount}</td>
-                            <td>
-                                <a href="/class/getStudentList?studentId=${stu.studentId}" type="button" class="btn  btn-sm btn-primary"><i class="fa fa-edit"></i>查看详情</a>&nbsp;
-                            </td>
-                        </tr>
-<%--                    </c:forEach>--%>
+                    <%--                    <c:forEach items="${papers}" var="paper">--%>
+                    <tr>
+                        <%--
+                                                    <td><a href="${paper.url}" target="view_window">${paper.paperName}</a></td>
+                        --%>
+                        <td>${stu.classId}</td>
+                        <td>${stuCount}</td>
+                        <td>
+                            <a href="/student/getStudentList?studentId=${stu.studentId}" type="button" class="btn  btn-sm btn-primary"><i class="fa fa-edit"></i>查看详情</a>&nbsp;
+                        </td>
+                    </tr>
+                    <%--                    </c:forEach>--%>
 
                     </tbody>
                 </table>
             </div>
+
         </section>
     </div>
     <jsp:include page="../include/copyright.jsp"/>

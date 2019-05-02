@@ -40,17 +40,6 @@ public class StudentClassController {
 
 
 
-    @RequestMapping("/getStudentList")//查询学生列表，对应页面中学生服务中的我的班级
-    public String getStudentList(Model model,Long studentId){
-        if(studentId != null){
-                List<Student> studentList = studentInformationService.getStudentList(studentId);
-                model.addAttribute("stuList",studentList);
-                return "stu_class_info";
-
-
-        }
-        return "error";
-    }
 
     @RequestMapping("/teacherClass")
     public String getStudentListByClassId(Model model,Long teacherId){
@@ -74,17 +63,6 @@ public class StudentClassController {
     }
 
 
-    @RequestMapping("/studentClassInformation")
-    public String getClassInformation(Model model,Long studentId){
-        if(studentId != null){
-            Student student = studentInformationService.selectStudentById(studentId);
-            int studnetCount = studentInformationService.getStudnetCount(student.getClassId());
-            model.addAttribute("stu",student);
-            model.addAttribute("stuCount",studnetCount);
-            return "stu_class";
-        }
-        return "error";
-    }
 
     @RequestMapping("/editStudent")
     public String editStudent(Model model,Long studentId){

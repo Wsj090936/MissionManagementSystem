@@ -38,7 +38,7 @@
 
             <div class="form-group has-feedback">
                 <input type="text" name="userName" class="form-control" placeholder="账号">
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
                 <input type="password" name="password" class="form-control" placeholder="密码">

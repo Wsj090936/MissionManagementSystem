@@ -8,14 +8,15 @@
     <jsp:include page="../include/header.jsp"/>
 </head>
 <script>
-    var success = ${success};
+    var success=${success};
     if(success){
-        alert("修改成功");
+        alert("操作成功");
     }
-    var createClass = ${createClass}
+    var createClass=${createClass}
     if(createClass){
         alert("创建成功");
     }
+
 
 </script>
 <body class="hold-transition skin-blue sidebar-mini">

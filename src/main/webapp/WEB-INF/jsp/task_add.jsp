@@ -61,7 +61,7 @@
                                 <textarea rows="20" cols="168" name="detail" placeholder="请输入任务内容"></textarea>
                             </div>
                             附件： <input type ="file" name="file" value="file"/><br/>
-                            <input type ="submit" value="确定"/>
+                            <button type="submit" class="btn btn-primary">确定</button>
                             <iframe name ="hframe" id="hframe" style=" display: none" ></iframe >
                         </form>
                     </div>
@@ -83,6 +83,7 @@
     var isSuccess = ${isSuccess};
     if(isSuccess){
         alert("添加成功");
+        window.location.href="http://localhost:8003/task/toAddTask";
     }
 </script>
 </html>

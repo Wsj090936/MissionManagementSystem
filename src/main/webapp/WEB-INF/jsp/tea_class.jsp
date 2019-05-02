@@ -31,21 +31,24 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="box-body table-responsive no-padding">
-                <div class="box-header with-border">
-                    <h3 class="box-title">班级成员</h3>
+
+            <div class="panel panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading">班级成员</div>
+                <div class="panel-body">
+                    <form id= "form1" enctype ="multipart/form-data" action= "/upload/uploadExcel" method ="post" target= "hframe">
+                        上传学生名单： <input type ="file" name="file" value="file"/><br/>
+                        <input type ="submit" value="创建班级"/>
+                        <iframe name ="hframe" id="hframe" style=" display: none" ></iframe >
+                    </form>
                 </div>
-                <form id= "form1" enctype ="multipart/form-data" action= "/upload/uploadExcel" method ="post" target= "hframe">
-                    上传学生名单： <input type ="file" name="file" value="file"/><br/>
-                    <input type ="submit" value="创建班级"/>
-                    <iframe name ="hframe" id="hframe" style=" display: none" ></iframe >
-                </form>
-                <table class="table table-hover">
+                <!-- Table -->
+                <table class="table">
+
                     <thead>
                     <tr>
                         <th>班级</th>
                         <th>操作</th>
-
                     </tr>
                     </thead>
                     <tbody>
@@ -58,10 +61,11 @@
                             </td>
                         </tr>
                     </c:forEach>
-
                     </tbody>
+
                 </table>
             </div>
+
         </section>
     </div>
     <jsp:include page="../include/copyright.jsp"/>
